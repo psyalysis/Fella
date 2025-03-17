@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script> <!-- Lucide Icons -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fella!</title>
 </head>
 <body>
+    <div class="topbar">
+        <h1 id="Logo">
+            <i data-lucide="heart-handshake"></i> Fella
+        </h1>
+        <nav>
+            <a href="#"><i data-lucide="home"></i> Home</a>
+            <a href="#"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="#"><i data-lucide="info"></i> About</a>
+        </nav>
+    </div>
+    
     <div class="card">
         <h1>Welcome</h1>
-        <p>This is a clean Flat UI template.</p>
+        <p>Step Into Your Future, Sober & Strong.</p>
         <a href="#" class="btn">Get Started</a>
     </div>
+
+    <script>
+        lucide.createIcons(); // Render Lucide icons
+    </script>
 </body>
 </html>
