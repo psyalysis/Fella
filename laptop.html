@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyroscope Display</title>
+</head>
+<body>
+    <h1>Receiving Gyroscope Data</h1>
+    <p id="output">Waiting for data...</p>
+
+    <script>
+        const ws = new WebSocket("wss://your-app-name.onrender.com/ws");
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById("output").innerText = `Alpha: ${data.alpha}, Beta: ${data.beta}, Gamma: ${data.gamma}`;
+        };
+    </script>
+</body>
+</html>

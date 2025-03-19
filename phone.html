@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Gyroscope</title>
+</head>
+<body>
+    <h1>Sending Gyroscope Data</h1>
+    <script>
+        const ws = new WebSocket("wss://your-app-name.onrender.com/ws");
+
+        ws.onopen = () => {
+            console.log("Connected to WebSocket server");
+        };
+
+        window.addEventListener("deviceorientation", (event) => {
+            const data = JSON.stringify({
+                alpha: event.alpha, // Rotation around Z-axis
+                beta: event.beta,   // Rotation around X-axis
+                gamma: event.gamma  // Rotation around Y-axis
+            });
+
+            ws.send(data); // Send to WebSocket server
+        });
+    </script>
+</body>
+</html>
